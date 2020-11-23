@@ -1,0 +1,2 @@
+class TickList < ApplicationRecord
+end

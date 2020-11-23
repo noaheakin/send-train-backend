@@ -1,0 +1,2 @@
+class TargetClimbsController < ApplicationController
+end

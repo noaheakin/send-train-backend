@@ -1,0 +1,2 @@
+class TargetClimb < ApplicationRecord
+end
