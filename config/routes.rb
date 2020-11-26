@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   post '/register', to: 'users#create'
   post '/get_areas', to: 'crags#show'
+  post '/get_climbs', to: 'mpapi#show'
   get '/profile', to: 'users#profile'
   
 
