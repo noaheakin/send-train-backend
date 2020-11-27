@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_221323) do
 
   create_table "crags", force: :cascade do |t|
     t.string "name"
-    t.integer "lat"
-    t.integer "lon"
+    t.float "lat"
+    t.float "lon"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
