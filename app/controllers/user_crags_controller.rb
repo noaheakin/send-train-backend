@@ -1,0 +1,2 @@
+class UserCragsController < ApplicationController
+end
