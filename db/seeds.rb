@@ -1,5 +1,6 @@
 User.destroy_all
 Crag.destroy_all
+UserCrag.destroy_all
 
 user1 = User.create(name: "Noah Eakin", username: "noah8", password_digest: BCrypt::Password.create('test'), location: "Seattle, WA", bio: "I love climbing", profile_pic: "https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/13620793_10210165704243728_2416355997509709543_n.jpg?_nc_cat=111&ccb=2&_nc_sid=174925&_nc_ohc=3m0MBWcAHIEAX_6MpAY&_nc_ht=scontent-sea1-1.xx&oh=00239e44bd1d075084ad7350bb3e8ba4&oe=5FDE03E0")
 
@@ -25,3 +26,5 @@ crag19= Crag.create(name: "Peshastin Pinnacles", lat: 47.542, lon: -120.521, loc
 crag20 = Crag.create(name: "Snoqualmie Pass", lat: 47.427, lon: -121.431, location: "Washington")
 crag21 = Crag.create(name: "Tieton", lat: 46.684, lon: -120.958, location: "Washington")
 crag22 = Crag.create(name: "Vantage (AKA Frenchman Coulee)", lat: 47.025, lon: -119.969, location: "Washington")
+
+userCrag1 = UserCrag.create(user_id: User.all[0].id, crag_id: Crag.all[5].id)
