@@ -28,3 +28,4 @@ crag21 = Crag.create(name: "Tieton", lat: 46.684, lon: -120.958, location: "Wash
 crag22 = Crag.create(name: "Vantage (AKA Frenchman Coulee)", lat: 47.025, lon: -119.969, location: "Washington")
 
 userCrag1 = UserCrag.create(user_id: User.all[0].id, crag_id: Crag.all[5].id)
+userCrag2 = UserCrag.create(user_id: User.all[0].id, crag_id: Crag.all[7].id)

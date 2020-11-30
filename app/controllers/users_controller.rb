@@ -29,6 +29,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def crags 
+    byebug
+    crags = User.find_by(id: params[:user_id])
+  end
 
   def auto_login
     render json: @user
