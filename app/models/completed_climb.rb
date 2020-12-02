@@ -1,0 +1,2 @@
+class CompletedClimb < ApplicationRecord
+end

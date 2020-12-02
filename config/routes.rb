@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :completed_climbs
   resources :user_crags
   resources :crags
   resources :target_climbs
