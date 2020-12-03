@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/get_climbs', to: 'mpapi#show'
   # post '/get_user_crags', to: 'users#crags'
   get '/profile', to: 'users#profile'
+  post '/get_climbs_by_id', to: 'mpapi#climbs_by_id'
   
 
 end

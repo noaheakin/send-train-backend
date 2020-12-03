@@ -7,4 +7,12 @@ class MpapiController < ApplicationController
         result = JSON.parse(response)
         render json: result
     end
+
+    def completed_climbs_by_id
+        byebug
+        url ="https://www.mountainproject.com/data/get-routes?routeIds=#{params[:climb_ids]}&key=#{MP_API_KEY}"
+        resp = RestClient.get(url)
+        final = JSON.parse(resp)
+        render :json => final["routes"][0]
+    end
 end

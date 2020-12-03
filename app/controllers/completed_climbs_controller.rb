@@ -11,9 +11,7 @@ class CompletedClimbsController < ApplicationController
     end
 
     def create
-        byebug
         completed_climb = CompletedClimb.find_or_create_by(completed_climb_params)
-        byebug
         if completed_climb.valid?
             completed_climb.save
             render :json => completed_climb

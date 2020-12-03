@@ -1,6 +1,8 @@
 User.destroy_all
 Crag.destroy_all
 UserCrag.destroy_all
+Climb.destroy_all
+CompletedClimb.destroy_all
 
 user1 = User.create(name: "Noah Eakin", username: "noah8", password_digest: BCrypt::Password.create('test'), location: "Seattle, WA", bio: "I love climbing", profile_pic: "https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/13620793_10210165704243728_2416355997509709543_n.jpg?_nc_cat=111&ccb=2&_nc_sid=174925&_nc_ohc=3m0MBWcAHIEAX_6MpAY&_nc_ht=scontent-sea1-1.xx&oh=00239e44bd1d075084ad7350bb3e8ba4&oe=5FDE03E0")
 
