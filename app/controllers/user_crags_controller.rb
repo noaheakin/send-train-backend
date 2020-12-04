@@ -1,6 +1,6 @@
 class UserCragsController < ApplicationController
 
-    before_action :authorized
+    skip_before_action :authorized, only: [:index, :show]
 
     def index
         user_crags = UserCrag.all 
@@ -13,13 +13,12 @@ class UserCragsController < ApplicationController
     end
 
     def destroy
-        user_crag = UserCrag.find(params[:id].to_i)
+        user_crag = UserCrag.find_by(crag_id: params[:id].to_i)
         user_crag.destroy
     end
 
     def create
-        
-        user = UserCrag.create(user_id: params[:user_id].to_i, crag_id: params[:crag_id].to_i)
-        render json: user
+        user_crag = UserCrag.find_or_create_by(user_id: @user.id, crag_id: params[:crag_id].to_i)
+        render json: @user.crags.filter{|crag| crag.id === user_crag.crag_id}[0]
     end
 end

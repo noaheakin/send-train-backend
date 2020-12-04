@@ -1,6 +1,6 @@
 class ClimbsController < ApplicationController
 
-    # MP_API_KEY = '200976653-c6067a9354900bf9a182c19f021612e4'
+    skip_before_action :authorized, only: [:index, :climb]
 
     def index
         climbs = Climb.all
@@ -9,17 +9,12 @@ class ClimbsController < ApplicationController
 
     def show
         climb = Climb.find(params[:id])
-        # User.first.completed_climbs.map{|climb| climb.climb_id}
-
-        # url ="https://www.mountainproject.com/data/get-routes?routeIds=#{climb.mp_id}&key=#{MP_API_KEY}"
-        # resp = RestClient.get(url)
-        # final = JSON.parse(resp)
-        # render :json => final["routes"][0]
         render :json => climb
     end
 
     def create
         climb = Climb.find_or_create_by(climb_params)
+        byebug
         if climb.valid?
             climb.save
             render :json => climb

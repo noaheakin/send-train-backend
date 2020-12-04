@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       token = encode_token({user_id: @user.id})
       render json: {
-          user: @user.as_json(:include => [:user_crags, :crags]),
+          user: @user.as_json(:include => [:crags, :climbs_done]),
           token: token
     } 
     #   render json: {user: @user, token: token}
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    render json: {user: @user.as_json(:include => [:user_crags, :crags])}
+    render json: {user: @user.as_json(:include => [:crags, :climbs_done])}
   end
 
   private

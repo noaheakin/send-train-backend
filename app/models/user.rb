@@ -12,5 +12,9 @@ class User < ApplicationRecord
         self.climbs_done.map{|climb| climb.mp_id}.join(',')
     end
 
+    # def get_last_fav_crag
+        
+    # end
+
 
 end
