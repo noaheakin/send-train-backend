@@ -9,9 +9,8 @@ class ClimbsController < ApplicationController
 
     def show
         climb = Climb.find(params[:id])
-        byebug
         # User.first.completed_climbs.map{|climb| climb.climb_id}
-        
+
         # url ="https://www.mountainproject.com/data/get-routes?routeIds=#{climb.mp_id}&key=#{MP_API_KEY}"
         # resp = RestClient.get(url)
         # final = JSON.parse(resp)

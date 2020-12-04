@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :authorized, only: [:auto_login]
+    skip_before_action :authorized, only: [:create, :login]
 
   # REGISTER
   def create
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       token = encode_token({user_id: @user.id})
       render json: {
-          user: @user.as_json(:include => [:user_crags, :completed_climbs]),
+          user: @user.as_json(:include => [:user_crags, :crags]),
           token: token
     } 
     #   render json: {user: @user, token: token}
@@ -30,12 +30,11 @@ class UsersController < ApplicationController
   end
 
   def crags 
-    byebug
     crags = User.find_by(id: params[:user_id])
   end
 
-  def auto_login
-    render json: @user
+  def profile
+    render json: {user: @user.as_json(:include => [:user_crags, :crags])}
   end
 
   private

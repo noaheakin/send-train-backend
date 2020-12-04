@@ -9,9 +9,7 @@ class User < ApplicationRecord
     validates :username, uniqueness: { case_sensitive: false }
 
     def get_completed_climb_ids
-        climb_ids = self.climbs_done.map{|climb| climb.mp_id}
-
-
+        self.climbs_done.map{|climb| climb.mp_id}.join(',')
     end
 
 

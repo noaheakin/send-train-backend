@@ -1,4 +1,7 @@
 class UserCragsController < ApplicationController
+
+    before_action :authorized
+
     def index
         user_crags = UserCrag.all 
         render json: user_crags
