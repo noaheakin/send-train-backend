@@ -13,7 +13,7 @@ class UserCragsController < ApplicationController
     end
 
     def destroy
-        user_crag = UserCrag.find_by(crag_id: params[:id].to_i)
+        user_crag = UserCrag.find_by(user_id: @user.id, crag_id: params[:id].to_i)
         user_crag.destroy
     end
 

@@ -13,12 +13,20 @@ class CompletedClimbsController < ApplicationController
     end
 
     def create
-        byebug
-        completed_climb = CompletedClimb.find_or_create_by(completed_climb_params)
+        completed_climb = CompletedClimb.find_or_create_by(user_id: @user.id, climb_id: params[:climb_id].to_i)
         if completed_climb.valid?
             completed_climb.save
-            render :json => completed_climb
+            # byebug
+            # completed_climb = {completed_climb_id: completed_climb.climb_id.to_i}
+            # climb = @user.climbs_done.filter{|climb| climb.id === completed_climb[:completed_climb_id]}[0]
+            # byebug
+            render :json => @user.climbs_done.filter{|climb| climb.id === completed_climb.climb_id}[0]
         end
+    end
+
+    def destroy
+        completed_climb = CompletedClimb.find_by(user_id: @user.id, climb_id: params[:id].to_i)
+        completed_climb.destroy
     end
 
     private
