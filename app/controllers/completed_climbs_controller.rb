@@ -25,7 +25,8 @@ class CompletedClimbsController < ApplicationController
     end
 
     def destroy
-        completed_climb = CompletedClimb.find_by(user_id: @user.id, climb_id: params[:id].to_i)
+        target_climb = Climb.find_by(mp_id: params[:id])
+        completed_climb = CompletedClimb.find_by(user_id: @user.id, climb_id: target_climb.id)
         completed_climb.destroy
     end
 
