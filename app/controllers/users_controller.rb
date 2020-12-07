@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: @user.id})
       render json: {
           user: UserSerializer.new(@user),
+          displayUser: @user,
           token: token
     } 
     #   render json: {user: @user, token: token}
@@ -34,7 +35,14 @@ class UsersController < ApplicationController
   end
 
   def profile
-    render json: {user: UserSerializer.new(@user)}
+    render json: {user: UserSerializer.new(@user), displayUser: @user}
+  end
+
+  def update
+    byebug
+    user = User.find(@user.id)
+    user.update(name: params["name"], username: params["username"], profile_pic: params["profile_pic"], bio: params["bio"], location: params["location"])
+    render :json => user
   end
 
   private
