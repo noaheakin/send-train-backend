@@ -20,7 +20,7 @@ class TargetClimbsController < ApplicationController
             # completed_climb = {completed_climb_id: completed_climb.climb_id.to_i}
             # climb = @user.climbs_done.filter{|climb| climb.id === completed_climb[:completed_climb_id]}[0]
             # byebug
-            render :json => @user.climbs_done.filter{|climb| climb.id === target_climb.climb_id}[0]
+            render :json => @user.climbs_want.filter{|climb| climb.id === target_climb.climb_id}[0]
         end
     end
 
