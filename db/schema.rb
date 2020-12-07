@@ -39,18 +39,8 @@ ActiveRecord::Schema.define(version: 2020_12_02_061627) do
   end
 
   create_table "target_climbs", force: :cascade do |t|
-    t.integer "tick_list_id"
-    t.integer "climb_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "tick_lists", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "target_climb_id"
-    t.string "name"
-    t.string "area"
-    t.string "description"
+    t.integer "climb_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

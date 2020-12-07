@@ -5,9 +5,8 @@ class User < ApplicationRecord
     has_many :completed_climbs
     has_many :climbs_done, through: :completed_climbs, source: :climb
     
-    has_many :tick_lists
-    has_many :target_climbs, through: :tick_lists
-    has_many :wish_climbs, through: :target_climbs, source: :climb
+    has_many :target_climbs
+    has_many :climbs_want, through: :target_climbs, source: :climb
 
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }

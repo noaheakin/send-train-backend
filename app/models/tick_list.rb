@@ -1,2 +1,0 @@
-class TickList < ApplicationRecord
-end
