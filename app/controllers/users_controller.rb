@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorized, only: [:create, :login]
+    skip_before_action :authorized, only: [:create, :login, :index]
+
+  def index
+    users = User.all
+    render json: users 
+  end
 
   # REGISTER
   def create
@@ -42,6 +47,10 @@ class UsersController < ApplicationController
     user = User.find(@user.id)
     user.update(name: params["name"], username: params["username"], profile_pic: params["profile_pic"], bio: params["bio"], location: params["location"])
     render :json => user
+  end
+
+  def destroy
+    @user.destroy
   end
 
   private
