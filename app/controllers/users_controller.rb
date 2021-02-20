@@ -21,7 +21,6 @@ class UsersController < ApplicationController
   # LOGGING IN
   def login
     @user = User.find_by(username: params[:username])
-
     if @user && @user.authenticate(params[:password])
       token = encode_token({user_id: @user.id})
       render json: {
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
           displayUser: @user,
           token: token
     } 
-    #   render json: {user: @user, token: token}
+    #   render json: {user: @user, token: token} (before serializer was implemented)
     else
       render json: {error: "Invalid username or password"}
     end
